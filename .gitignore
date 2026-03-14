@@ -1,0 +1,5 @@
+/dist
+*.py[cd]
+/node_modules
+/.idea
+/.venv
