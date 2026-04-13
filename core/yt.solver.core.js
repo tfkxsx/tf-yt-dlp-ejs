@@ -400,29 +400,17 @@ var jsc = (function (meriyah, astring) {
             node.expression.left.type === "Identifier" &&
             node.expression.right.type === "FunctionExpression" &&
             node.expression.right.params.length === 4 &&
-            node.expression.right.body.body.length === 7 &&
+            node.expression.right.body.body.length === 6 &&
+            node.expression.right.body.body[0].type == "VariableDeclaration" &&
             node.expression.right.body.body[1].type == "IfStatement" &&
-            node.expression.right.body.body[2].type == "IfStatement" &&
-            node.expression.right.body.body[3].type == "IfStatement" &&
+            node.expression.right.body.body[2].type == "ExpressionStatement" &&
+            node.expression.right.body.body[3].type == "ExpressionStatement" &&
             node.expression.right.body.body[4].type == "ExpressionStatement" &&
-            node.expression.right.body.body[5].type == "ExpressionStatement" &&
-            node.expression.right.body.body[6].type == "ReturnStatement"
+            node.expression.right.body.body[5].type == "ReturnStatement"
           ) {
             name = node.expression.left.name;
             block = node.expression.right.body;
             level = 3
-          }
-          break;
-        }
-        case 'ExpressionStatement': {
-          if (
-            node.expression.type === 'AssignmentExpression' &&
-            node.expression.left.type === 'Identifier' &&
-            node.expression.right.type === 'FunctionExpression' &&
-            node.expression.right.params.length === 1
-          ) {
-            name = node.expression.left.name;
-            block = node.expression.right.body;
           }
           break;
         }
@@ -451,8 +439,8 @@ var jsc = (function (meriyah, astring) {
             type: "CallExpression",
             callee: { type: "Identifier", name: name },
             arguments: [
-              { type: "Literal", value: 5},
-              { type: "Literal", value: 2818 },
+              { type: "Literal", value: 57},
+              { type: "Literal", value: 1649},
               { type: "Identifier", name: "n" },
             ],
             optional: false,
